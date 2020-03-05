@@ -4,7 +4,11 @@ const paginate = require('mongoose-paginate-v2');
 const User = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, select: false }
+  password: { type: String, required: true, select: false },
+  driver: { type: Boolean, default: false },
+  cpf: { type: String },
+  cnh: { type: String }, //foto da cnh,
+  status: { type: String, default: 'stopped', enum: ['traveling', 'stopped'] }
 });
 
 User.plugin(paginate);
