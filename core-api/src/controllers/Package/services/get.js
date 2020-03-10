@@ -6,6 +6,8 @@ module.exports = async (req, res) => {
 
     const package = await PackageModel.findById(id).populate('delivery');
 
+    if (!package) return res.status(401).end();
+
     return res
       .status(200)
       .json(package)

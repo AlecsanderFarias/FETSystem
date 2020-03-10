@@ -6,6 +6,8 @@ module.exports = async (req, res) => {
 
     const locomotion = await LocomotionModel.findById(id);
 
+    if (!locomotion) return res.status(401).end();
+
     return res
       .status(200)
       .json(locomotion)

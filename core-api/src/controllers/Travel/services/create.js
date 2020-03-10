@@ -6,7 +6,20 @@ module.exports = async (req, res) => {
 
     console.log(travelData);
 
-    const travel = await TravelModel.create(deliveryData);
+    /*  if (!(await locomotionIsAvaible(travelData.locomotion)))
+      return res.status(401).end(); //locomocao nao esta livre no momento
+
+    if (
+      travelData.subLocomotion &&
+      !(await locomotionIsAvaible(travelData.subLocomotion))
+    )
+      return res.status(401).end(); //locomocao nao esta livre no momento */
+
+    /*  if (!(await driverIsAvaible(travelData.driver)))
+      return res.status(401).end(); //motorista nao esta livre no momento
+ */
+
+    const travel = await TravelModel.create(travelData);
 
     return res
       .status(200)

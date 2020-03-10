@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 const paginate = require('mongoose-paginate-v2');
 
 const Travel = mongoose.Schema({
+  description: {
+    type: String,
+    required: true
+  },
   date: {
-    start: { type: Date, required: true },
-    end: { type: Date, required: true }
+    start: { type: Date },
+    end: { type: Date }
   },
   status: {
     type: String,
-    defaul: 'unstarted',
+    default: 'unstarted',
     enum: ['unstarted', 'in progress', 'finished']
   },
   driver: {

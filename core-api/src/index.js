@@ -11,5 +11,5 @@ module.exports = app => {
   app.use('/package', Package);
   app.use('/locomotion', Locomotion);
   app.use('/delivery', Delivery);
-  app.use('/Travel', Travel);
+  app.use('/travel', Travel);
 };
