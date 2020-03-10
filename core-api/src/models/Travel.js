@@ -16,6 +16,12 @@ const Travel = mongoose.Schema({
     ref: 'User',
     required: true
   },
+  deliverys: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Delivery'
+    }
+  ],
   locomotion: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Locomotion',

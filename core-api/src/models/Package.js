@@ -10,12 +10,7 @@ const Package = mongoose.Schema({
     type: String,
     required: true
   },
-  delivery: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Travel',
-    required: true
-  },
-  Weight: {
+  weight: {
     type: Number,
     required: true
   },
@@ -27,7 +22,12 @@ const Package = mongoose.Schema({
     type: String,
     default: 'package',
     enum: ['package', 'boxes']
-  }
+  },
+  pictures: [
+    {
+      type: String
+    }
+  ]
 });
 
 Package.plugin(paginate);

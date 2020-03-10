@@ -7,11 +7,13 @@ module.exports = async (req, res) => {
     const userData = rest;
 
     userData.password = await bcrypt.hash(password, 8);
-    userData.roles = ['athlete'];
 
-    await UserModel.create(userData);
+    const user = await UserModel.create(userData);
 
-    return res.status(200).end();
+    return res
+      .status(200)
+      .json(user)
+      .end();
   } catch (error) {
     console.log(error);
 

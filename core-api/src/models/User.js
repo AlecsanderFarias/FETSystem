@@ -5,6 +5,7 @@ const User = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, select: false },
+  admin: { type: Boolean, default: false },
   driver: { type: Boolean, default: false },
   cpf: { type: String },
   cnh: { type: String }, //foto da cnh,

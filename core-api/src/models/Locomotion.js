@@ -3,7 +3,7 @@ const paginate = require('mongoose-paginate-v2');
 
 const Locomotion = mongoose.Schema({
   nickname: {
-    type: Date,
+    type: String,
     required: true
   },
   double: {
@@ -31,17 +31,23 @@ const Locomotion = mongoose.Schema({
       required: true
     }
   },
-  Weight: {
+  weight: {
     type: Number,
     required: true
   },
   board: {
     type: String,
-    required: truex
+    required: true,
+    unique: true
   },
   picture: {
     type: String
-  }
+  },
+  docPictures: [
+    {
+      type: String
+    }
+  ]
 });
 
 Locomotion.plugin(paginate);

@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 const paginate = require('mongoose-paginate-v2');
 
 const Delivery = mongoose.Schema({
-  travel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Travel',
-    required: true
-  },
   address: {
     street_name: { type: String, required: true },
     street_number: { type: String, required: true },
@@ -15,7 +10,8 @@ const Delivery = mongoose.Schema({
     state: { type: String, required: true }
   },
   date: {
-    type: Date
+    type: Date,
+    required: true
   },
   status: {
     type: String,
@@ -25,7 +21,13 @@ const Delivery = mongoose.Schema({
   value: {
     type: Number,
     required: true
-  }
+  },
+  packages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Package'
+    }
+  ]
 });
 
 Delivery.plugin(paginate);
